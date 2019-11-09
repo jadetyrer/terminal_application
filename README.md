@@ -1,2 +1,3 @@
 # terminal_application
-Terminal application files
+
+Here is my assignment for term 1. 
