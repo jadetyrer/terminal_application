@@ -3,7 +3,7 @@ require "tty-prompt"
 require "tty-table"
 
 prompt = TTY::Prompt.new
-table = TTY::Table.new ["Bespoke Nails","Price List"], [["Manicure", "£25.00"], ["Pedicure", "£30.00"], ["Nail Art", "Extra"], ["Stenciled", "£1.00"], ["Ombre", "£1.00"], ["Stickers", "£2.00"], ["Marbled", "£1.00"], ["Two-toned", "£1.00"], ["Polka-dot", "£1.00"], ["French", "£2.00"], ["Matt-look", "£2.00"], ["Aztec", "£1.00"], ["Glitter", "£2.00"], ["Jewelled", "£2.00"], ["Metallic", "£2.00"]]
+table = TTY::Table.new [["Bespoke Nails","Price List"], ["Manicure", "£25.00"], ["Pedicure", "£30.00"], ["Nail Art", "Extra £4.00"]]
 
 
         cherry = Rainbow("Deep Red").webmaroon 
@@ -129,21 +129,7 @@ when "customize"
     response = gets.chomp.downcase
     if response == "y"
         nail_art = prompt.select("Which type of nail art would you like:", nail_art)
-        case nail_art
-        when "Stenciled"
-            price.push 1
-        when "Ombre"
-            price.push 1
-        when "Stickers"
-            price.push 2
-        when "Marbled"
-            price.push 1
-        when "Two-toned"
-            price.push 1
-        when "Polka-dot"
-            price.push 1
-        when "French"
-            price.push
+        price.push 4
         order["nail_art"] = nail_art
         puts "Here is your order:"
         order.each do |key, value|
@@ -173,14 +159,19 @@ when "randomize"
         puts "Are you happy with your randomized nails?"
         response = gets.chomp
     end 
-    puts nail_order
 
 else
     puts "Invalid selection"
 
 end   
 
-puts price
+if mani_or_pedi == "Manicure"
+    price.push 29
+else mani_or_pedi = "Pedicure"
+    price.push 34
+end 
+
+puts "Your order will be £#{price.sum}.00."
     
 
 
