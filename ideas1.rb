@@ -94,6 +94,7 @@ table = TTY::Table.new [["Bespoke Nails","Price List"], ["Manicure", "£25.00"],
         grey = Rainbow("Grey").darkgray
         silver = Rainbow("Silver").gray
         dark_grey = Rainbow("Dark Grey").darkslategray
+        
 
         colour_array = [cherry, deep_red, crimson, maroon, ginger, burnt_orange, gold, dark_gold, tangerine, coral, salmon, apricot, cinnamon, pecon, caramel, mustard, peach, daffodil, khaki, butter, sand, pale_banana, pineapple, pale_lemon, pale_yellow, bright_yellow, olive, fern, sea_green, dusty_green, spring_green, dusty_aqua, seafoam, pale_mint, aqua, aquamarine, ivy_green, teal, lime, pale_ivy,deep_olive, turquoise, pastel_green, pine, ocean, basil, shamrock, parakeet, pickle, artic, pale_green, cerulean, stone, steel_blue, lapis, pastle_blue, midnight_blue, royal_blue, navy_blue, pastel_blue, dodger_blue, slate_blue, deep_orchid, violet, raspberry, deep_violet, hot_pink, dusty_pink, deep_purple, pastel_coral, pastel_raspberry, orchid, dusty_purple,bright_violet, rose, watermelon, coral, blush, mulberry, eggplant,heather, taffy, grape, almond, white, grey, silver,dark_grey]
 
