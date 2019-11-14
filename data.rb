@@ -1,11 +1,5 @@
 require "rainbow"
-require "tty-prompt"
-require "tty-table"
-
-prompt = TTY::Prompt.new
-table = TTY::Table.new [["Bespoke Nails","Price List"], ["Manicure", "£25.00"], ["Pedicure", "£30.00"], ["Nail Art", "Extra £4.00"]]
-
-
+        
         cherry = Rainbow("Deep Red").webmaroon 
         deep_red = Rainbow("Cherry").brown
         crimson = Rainbow("Crimson").crimson
@@ -94,91 +88,8 @@ table = TTY::Table.new [["Bespoke Nails","Price List"], ["Manicure", "£25.00"],
         grey = Rainbow("Grey").darkgray
         silver = Rainbow("Silver").gray
         dark_grey = Rainbow("Dark Grey").darkslategray
+
+
+        $colour_array = [cherry, deep_red, crimson, maroon, ginger, burnt_orange, gold, dark_gold, tangerine, coral, salmon, apricot, cinnamon, pecon, caramel, mustard, peach, daffodil, khaki, butter, sand, pale_banana, pineapple, pale_lemon, pale_yellow, bright_yellow, olive, fern, sea_green, dusty_green, spring_green, dusty_aqua, seafoam, pale_mint, aqua, aquamarine, ivy_green, teal, lime, pale_ivy,deep_olive, turquoise, pastel_green, pine, ocean, basil, shamrock, parakeet, pickle, artic, pale_green, cerulean, stone, steel_blue, lapis, pastle_blue, midnight_blue, royal_blue, navy_blue, pastel_blue, dodger_blue, slate_blue, deep_orchid, violet, raspberry, deep_violet, hot_pink, dusty_pink, deep_purple, pastel_coral, pastel_raspberry, orchid, dusty_purple,bright_violet, rose, watermelon, coral, blush, mulberry, eggplant,heather, taffy, grape, almond, white, grey, silver,dark_grey]
+
         
-
-        colour_array = [cherry, deep_red, crimson, maroon, ginger, burnt_orange, gold, dark_gold, tangerine, coral, salmon, apricot, cinnamon, pecon, caramel, mustard, peach, daffodil, khaki, butter, sand, pale_banana, pineapple, pale_lemon, pale_yellow, bright_yellow, olive, fern, sea_green, dusty_green, spring_green, dusty_aqua, seafoam, pale_mint, aqua, aquamarine, ivy_green, teal, lime, pale_ivy,deep_olive, turquoise, pastel_green, pine, ocean, basil, shamrock, parakeet, pickle, artic, pale_green, cerulean, stone, steel_blue, lapis, pastle_blue, midnight_blue, royal_blue, navy_blue, pastel_blue, dodger_blue, slate_blue, deep_orchid, violet, raspberry, deep_violet, hot_pink, dusty_pink, deep_purple, pastel_coral, pastel_raspberry, orchid, dusty_purple,bright_violet, rose, watermelon, coral, blush, mulberry, eggplant,heather, taffy, grape, almond, white, grey, silver,dark_grey]
-
-
-nail_shape = ["Square", "Oval", "Squoval", "Rounded", "Stiletto", "Almond", "Coffin"]
-
-nail_art = ["Stenciled", "Ombre", "Stickers", "Marbled", "Two-toned", "Polka-dot", "French", "Matt-look", "Aztec", "Glitter", "Jewelled", "Metallic"]
-     
-order = {}
-price = []
-
-puts "Welcome to Bespoke Nails!"
-puts "Here is the price list:"
-puts table.render(:ascii)
-
-mani_or_pedi = prompt.select("Would you like a manicure or pedicure?", %w(Manicure Pedicure))
-if mani_or_pedi == "Manicure"
-    price.push 25
-else mani_or_pedi = "Pedicure"
-    price.push 30
-end 
-order["mani_or_pedi"] = mani_or_pedi
-
-puts "Would you like to customize or randomize?"
-selection = gets.chomp.downcase
-case selection
-when "customize"
-    puts colour_choice = prompt.multi_select("Choose your colours:", colour_array)
-    order["colour_choice"] = colour_choice
-    puts nail_shape = prompt.select("Which nail shape would you like:", nail_shape)
-    order["nail_shape"] = nail_shape
-    puts "Would you like nail art? (y/n)"
-    response = gets.chomp.downcase
-    if response == "y"
-        nail_art = prompt.select("Which type of nail art would you like:", nail_art)
-        price.push 4
-        order["nail_art"] = nail_art
-        puts "Here is your order:"
-        order.each do |key, value|
-            #puts key.to_s + " : " + value.to_s
-            if value.kind_of?(Array)
-                puts "#{key} : #{value.join(", ")}" 
-            else
-                puts "#{key} : #{value}"
-            end
-        end 
-
-    elsif response == "n"
-        puts "Here is your order:"
-        order.each do |key, value|
-            puts key.to_s + " : " + value.to_s
-        end 
-    else 
-        puts "Invalid response"
-    end 
-
-
-when "randomize"
-    response = "n"
-    while response == "n"
-        random_colour1 = colour_array.sample
-        random_colour2 = colour_array.sample
-        random_colour3 = colour_array.sample
-        random_shape = nail_shape.sample
-        random_art = nail_art.sample
-        nail_order = "Your randomized nails are #{random_colour1}, #{random_colour2} and #{random_colour3}, with a #{random_shape} shape and #{random_art} nail art."
-        puts nail_order
-        puts "Are you happy with your randomized nails?"
-        response = gets.chomp
-    end 
-
-else
-    puts "Invalid selection"
-
-end   
-
-if mani_or_pedi == "Manicure"
-    price.push 29
-else mani_or_pedi = "Pedicure"
-    price.push 34
-end 
-
-puts "Your order will be £#{price.sum}.00."
-    
-
-
-
