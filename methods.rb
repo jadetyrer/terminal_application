@@ -1,6 +1,32 @@
 require "tty-prompt"
 require_relative "data"
 
+class Customer
+    attr_accessor :customer_name, :customer_number, :customer_email
+
+    def customer_name
+        puts "Customer_name:"
+        @customer_name = gets.chomp
+    end 
+
+    # def customer_number
+    #     puts "Customer_number:"
+    #     @customer_number = gets.chomp
+    # end 
+
+    # def customer_email
+    #     puts "Customer_email:"
+    #     @customer_number = gets.chomp
+    # end 
+
+    def customer_details 
+        customer_details = []
+        customer_details.push customer_name 
+        customer_details.push customer_number
+        customer_details.push customer_email
+    end 
+
+end 
 
 
 def read_as_file(filename)
@@ -22,39 +48,36 @@ def read_as_file(filename)
 end 
 
 def does_user_want_a_mani(prompt)
-    mani_or_pedi = prompt.select("Would you like a manicure or pedicure?", %w(Manicure Pedicure))
+    mani_or_pedi = prompt.select("Book manicure or pedicure?", %w(Manicure Pedicure))
     mani_or_pedi == "Manicure"
 end 
 
 def randomize_or_customize
-    puts "Would you like to customize or randomize?"
+    puts "Book customize or randomize treatment?"
     selection = gets.chomp.downcase
 end 
 
 def colour_choice(prompt)
-    prompt = TTY::Prompt.new
-    colour_choice = prompt.multi_select("Choose your colours:", $colour_array)
+    colour_choice = prompt.multi_select("Choose colours:", $colour_array)
 end 
 
 def nail_shape_choice(prompt)
-    prompt = TTY::Prompt.new
     nail_shape = read_as_file("nail_shape.txt")
-    return nail_shape = prompt.select("Which nail shape would you like:", nail_shape)
+    return nail_shape = prompt.select("Choose nail shape:", nail_shape)
 end 
 
 def nail_art_choice(prompt)
-    prompt = TTY::Prompt.new(prompt)
     nail_art = read_as_file("nail_art.txt")
     puts "Would you like nail art? (y/n)"
     response = gets.chomp.downcase
     if response == "y"
-        nail_art = prompt.select("Which type of nail art would you like:", nail_art)
+        nail_art = prompt.select("Coose type of nail art:", nail_art)
     end    
 end 
 
 def random_colours
     random_colour = $colour_array.sample(3)
-    random_colour.join(", ")
+    random_colour
 end 
 
 def random_shape
@@ -69,14 +92,14 @@ def random_art
     random_art
 end 
 
-def randomize 
+def randomize(prompt, order)
     response = "no"
     while response == "no"
-        puts random_colours
-        puts random_shape
-        puts random_art
-        prompt = TTY::Prompt.new
-        response = prompt.select("Are you happy with your order?", %w(yes no))
+        order.colours = random_colours
+        order.nail_shape = random_shape
+        order.nail_art = random_art
+        order.print_order
+        response = prompt.select("Is the customer happy with the order?", %w(yes no))
     end
 end 
 
@@ -90,19 +113,31 @@ class Order
     def print_order
         if @is_mani
             puts "A manicure order:"
+            puts
         else
             puts "A pedicure order:"
+            puts
         end
 
         puts "Colours: #{@colours.join(", ")}"
-        puts "Nail art: #{@nail_art}"
+        if nail_art != nil
+            puts "Nail art: #{@nail_art}"
+        end 
         if @is_mani
             puts "Nail shape: #{@nail_shape}"
         end 
     end 
 
-end
+    def print_to_file
+        print_to_file = []
+        print_to_file.push is_mani
+        print_to_file.push colours
+        print_to_file.push nail_art
+        print_to_file.push nail_shape
+    end 
 
+
+end
 
 
 
