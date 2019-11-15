@@ -1,1 +1,1 @@
-["Jade Tyrer", nil, nil, false, ["\e[38;5;88mDeep Red\e[0m"], nil, "Coffin"]
+["", nil, nil, true, [], nil, nil]

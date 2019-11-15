@@ -1,13 +1,24 @@
 require "tty-prompt"
 require_relative "data"
+require "valid_email2"
 
 class Customer
     attr_accessor :customer_name, :customer_number, :customer_email
 
     def customer_name
         puts "Customer_name:"
-        @customer_name = gets.chomp
+        while customer_name = gets.chomp
+            case customer_name
+            when ""
+                puts "No name entered!"
+            break
+        end 
+            @customer_name = customer_name 
+            break
+    end
+
     end 
+        
 
     # def customer_number
     #     puts "Customer_number:"
@@ -52,9 +63,8 @@ def does_user_want_a_mani(prompt)
     mani_or_pedi == "Manicure"
 end 
 
-def randomize_or_customize
-    puts "Book customize or randomize treatment?"
-    selection = gets.chomp.downcase
+def randomize_or_customize(prompt)
+    cust_or_rand = prompt.select("Book randomized or customized?", %w(Randomize Customize))
 end 
 
 def colour_choice(prompt)
@@ -68,9 +78,8 @@ end
 
 def nail_art_choice(prompt)
     nail_art = read_as_file("nail_art.txt")
-    puts "Would you like nail art? (y/n)"
-    response = gets.chomp.downcase
-    if response == "y"
+    want_nail_art = prompt.select("Nail art?", %w(Yes No))
+    if want_nail_art == "Yes"
         nail_art = prompt.select("Coose type of nail art:", nail_art)
     end    
 end 
@@ -103,6 +112,13 @@ def randomize(prompt, order)
     end
 end 
 
+def randomize_test(order)
+    order.colours = random_colours
+    order.nail_shape = random_shape
+    order.nail_art = random_art
+    random_colours.to_s + random_shape.to_s + random_art.to_s
+end 
+
 
 class Order
     attr_accessor :nail_art, :nail_shape, :colours, :is_mani
@@ -112,10 +128,10 @@ class Order
 
     def print_order
         if @is_mani
-            puts "A manicure order:"
+            puts "Manicure order:"
             puts
         else
-            puts "A pedicure order:"
+            puts "Pedicure order:"
             puts
         end
 
@@ -141,9 +157,4 @@ end
 
 
 
-# nail_shape = read_as_file("nail_art.txt")
-
-# nail_shape.each do |shape|
-#     puts ">#{shape}<"
-# end
 
