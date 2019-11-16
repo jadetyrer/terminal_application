@@ -5,6 +5,7 @@ require_relative "methods"
 # nail_shape.each do |shape|
 #     puts ">#{shape}<"
 # end
+
 def testing_randomize
     order_1 = Order.new
     order_2 = Order.new
@@ -15,6 +16,9 @@ def testing_randomize
         puts "Pass"
     end 
 end 
+
+puts testing_randomize
+
 
 
 

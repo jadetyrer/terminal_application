@@ -1,0 +1,1 @@
+["Jade Tyrer", "jade-tyrer@hotmail.co.uk", "Manicure", ["\e[38;5;37mTeal\e[0m", "\e[38;5;157mSeafoam\e[0m", "\e[38;5;230mDaffodil\e[0m"], "Glitter", "Oval"]

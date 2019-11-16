@@ -3,7 +3,7 @@ require_relative "data"
 require "valid_email2"
 
 class Customer
-    attr_accessor :customer_name, :customer_number, :customer_email
+    attr_accessor :customer_name, :customer_email
 
     def customer_name
         puts "Customer_name:"
@@ -11,29 +11,28 @@ class Customer
             case customer_name
             when ""
                 puts "No name entered!"
-            break
+            exit
         end 
-            @customer_name = customer_name 
+            return @customer_name = customer_name 
             break
     end
 
     end 
         
 
-    # def customer_number
-    #     puts "Customer_number:"
-    #     @customer_number = gets.chomp
-    # end 
-
-    # def customer_email
-    #     puts "Customer_email:"
-    #     @customer_number = gets.chomp
-    # end 
+    def customer_email
+        puts "Customer_email:"
+        @customer_email = gets.chomp
+        while (ValidEmail2::Address.new(@customer_email)).valid? == false
+            puts "Invalid email! Please try again:"
+            @customer_email = gets.chomp
+        end 
+        return @customer_email
+    end 
 
     def customer_details 
         customer_details = []
         customer_details.push customer_name 
-        customer_details.push customer_number
         customer_details.push customer_email
     end 
 
@@ -129,10 +128,8 @@ class Order
     def print_order
         if @is_mani
             puts "Manicure order:"
-            puts
         else
             puts "Pedicure order:"
-            puts
         end
 
         puts "Colours: #{@colours.join(", ")}"
@@ -146,7 +143,11 @@ class Order
 
     def print_to_file
         print_to_file = []
-        print_to_file.push is_mani
+        if is_mani == true 
+            print_to_file.push "Manicure"
+        else 
+            print_to_file.push "Pedicure"
+        end 
         print_to_file.push colours
         print_to_file.push nail_art
         print_to_file.push nail_shape

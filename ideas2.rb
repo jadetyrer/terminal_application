@@ -1,6 +1,9 @@
 require "rainbow"
 require_relative "methods"
+require "valid_email2"
 
+password = ARGV[0]
+puts "#{password}"
 
 nail_shape = read_as_file("nail_shape.txt")
 nail_art = read_as_file("nail_art.txt")
@@ -8,8 +11,9 @@ prompt = TTY::Prompt.new
 order = Order.new
 customer = Customer.new
 
-puts Rainbow("Welcome to Bespoke Nails Booker!").rebeccapurple
+puts Rainbow("Welcome to Bespoke Nails Booker!")
 customer_details = customer.customer_details
+
 
 order.is_mani = does_user_want_a_mani(prompt)
 
@@ -28,9 +32,9 @@ else
     puts "Invalid response"
 end 
 
-# order_to_file = order.print_to_file
+order_to_file = order.print_to_file
 
-# File.write("order#{Time.now}.txt", customer_details + order_to_file)
+File.write("order#{Time.now}.txt", customer_details + order_to_file)
 
 
 
