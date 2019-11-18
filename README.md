@@ -22,10 +22,22 @@ The Gems Rainbow and TTY-prompt was used to make the terminal output easier to f
 
 
 
+Develop an outline of the user interaction and experience for the application.
+Your outline must include:
+- how the user will find out how to interact with / use each feature
+- how the user will interact with / use each feature
+- how errors will be handled by the application and displayed to the user
+
+
+
 Add in the name of the files 
 data.rb - for colours 
 nail_shape.rb... 
 try and add arg v 
+talk about creating the classes and methods 
+
+Add help for ARGV 
+do help file 
 
 
 

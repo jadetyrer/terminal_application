@@ -10,14 +10,18 @@ def testing_randomize
     order_1 = Order.new
     order_2 = Order.new
 
-    if randomize_test(order_1) == randomize_test(order_2)
-        puts "Fail"
+    randomize_order_contents(order_1)
+    randomize_order_contents(order_2)
+
+    if order_1.nail_art != order_2.nail_art || order_1.nail_shape != order_2.nail_shape || order_1.colours != order_2.colours
+        puts "PASS"
     else 
-        puts "Pass"
+        puts "FAIL"
     end 
 end 
 
 puts testing_randomize
+
 
 
 

@@ -2,8 +2,11 @@ require "rainbow"
 require_relative "methods"
 require "valid_email2"
 
-password = ARGV[0]
-puts "#{password}"
+salon_name = ARGV[0]
+
+def gets
+    STDIN.gets
+end
 
 nail_shape = read_as_file("nail_shape.txt")
 nail_art = read_as_file("nail_art.txt")
@@ -12,8 +15,9 @@ order = Order.new
 customer = Customer.new
 
 puts Rainbow("Welcome to Bespoke Nails Booker!")
-customer_details = customer.customer_details
+puts "Salon name: #{salon_name}"
 
+customer_details = customer.customer_details
 
 order.is_mani = does_user_want_a_mani(prompt)
 

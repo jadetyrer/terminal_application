@@ -1,1 +1,0 @@
-["k", "hjjd@nhfid", "Manicure", ["\e[38;5;88mDeep Red\e[0m", "\e[38;5;124mCherry\e[0m", "\e[38;5;197mCrimson\e[0m"], nil, "Stiletto"]
