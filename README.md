@@ -23,6 +23,16 @@ The program will save the customers personal details and the specifics of the or
 The Gems Rainbow and `tty-prompt` was used to make the terminal output easier to follow and look more appealing. The user is then prompted to enter the customer name, an error message will be displayed if the user does not provide any input and exit the program. When the name is enetered the program will ask for an email address and the Ruby gem `valid_email2` will be used to validate the address provided by the user. If the user inputs an invalid email address an error message will be displayed warning the user the email is in an invalid format and ask the user to try again until a valid email address format is provided. The customer details are later saved in an instance of a Customer class and these details are then written to a file for future access. The use of `tty-prompt` for the menus makes the navigation of the application simple to follow as each menu follows after the selection has been made from the previous menu. The use of `tty-prompt` also reduces the risk of invalid entries by the user. The customer and order details will be written to a file for future referal. Each file name is written to the current date and time to ensure a new file is created for each order to ensure no file is over-written. The user will then have the details of each customer order saved locally. 
 
 
+### T1A2-5 Control Flow Diagram
+[Control Flow Diagram](https://github.com/jadetyrer/terminal_application/blob/master/Control_flow_diagram.jpg)
+
+![Control Flow Diagram](https://github.com/jadetyrer/terminal_application/blob/master/Control_flow_diagram.jpg)
+
+
+
+
+
+
 
 
 
