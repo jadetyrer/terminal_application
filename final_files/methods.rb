@@ -5,90 +5,83 @@ require 'valid_email2'
 class Customer
     attr_accessor :customer_name, :customer_email
 
-    def customer_name
-        puts 'Customer_name:'
-        while customer_name = gets.chomp
+    def enter_customer_name
+        puts 'Customer name:'
+        while @customer_name = gets.chomp
             case customer_name
             when ''
                 puts 'No name entered!'
-            exit
-        end 
-            return @customer_name = customer_name 
-            break
+                exit
+            end
+            return @customer_name = customer_name
+        end
     end
 
-    end 
-        
-
-    def customer_email
-        puts 'Customer_email:'
+    def enter_customer_email
+        puts 'Customer email:'
         @customer_email = gets.chomp
-        while (ValidEmail2::Address.new(@customer_email)).valid? == false
+        while ValidEmail2::Address.new(@customer_email).valid? == false
             puts 'Invalid email! Please try again:'
             @customer_email = gets.chomp
-        end 
-        return @customer_email
-    end 
+        end
+        @customer_email
+    end
 
-    def customer_details 
+    def customer_details
         customer_details = []
-        customer_details.push customer_name 
-        customer_details.push customer_email
-    end 
-
-end 
-
+        customer_details.push enter_customer_name
+        customer_details.push enter_customer_email
+    end
+end
 
 def read_as_file(filename)
     output = []
-
     begin
         text = File.read(filename)
         text.each_line do |line|
             line = line.chomp
             if line != ''
-            output << line
-            end 
-        end 
+                output << line
+            end
+        end
     rescue StandardError => msg
-        puts 'Failed to load #{filename} #{msg}'
-    end 
-
+        puts "Failed to load #{filename} #{msg}"
+    end
     output
-end 
+end
 
 def does_user_want_a_mani(prompt)
-    $mani_or_pedi = prompt.select('Book manicure or pedicure?', %w(Manicure Pedicure))
+    $mani_or_pedi = prompt.select('Book manicure or pedicure?', %w[Manicure Pedicure])
     $mani_or_pedi == 'Manicure'
-end 
+end
 
 def randomize_or_customize(prompt)
-    cust_or_rand = prompt.select('Book randomized or customized?', %w(Randomize Customize))
-end 
+    prompt.select('Book randomized or customized?', %w[Randomize Customize])
+end
 
 def colour_choice(prompt)
     colour_choice = prompt.multi_select('Choose colours:', $colour_array)
-end 
+end
 
 def nail_shape_choice(prompt)
     if $mani_or_pedi == 'Manicure'
         nail_shape = read_as_file('nail_shape.txt')
-        return nail_shape = prompt.select('Choose nail shape:', nail_shape)
-    end 
-end 
+        prompt.select('Choose nail shape:', nail_shape)
+    end
+end
 
 def nail_art_choice(prompt)
     nail_art = read_as_file('nail_art.txt')
-    want_nail_art = prompt.select('Nail art?', %w(Yes No))
+    want_nail_art = prompt.select('Nail art?', %w[Yes No])
     if want_nail_art == 'Yes'
-        nail_art = prompt.select('Coose type of nail art:', nail_art)
-    end    
-end 
+        prompt.select('Choose type of nail art:', nail_art)
+    end
+end
 
 def random_colours
     random_colour = $colour_array.sample(3)
     random_colour
-end 
+end
 
 def random_shape
     nail_shape = read_as_file('nail_shape.txt')
@@ -100,27 +93,26 @@ def random_art
     nail_art = read_as_file('nail_art.txt')
     random_art = nail_art.sample
     random_art
-end 
+end
 
 def randomize(prompt, order)
-    response = 'no'
-    while response == 'no'
+    response = 'No'
+    while response == 'No'
         randomize_order_contents(order)
         order.print_order
-        response = prompt.select('Is the customer happy with the order?', %w(yes no))
+        response = prompt.select('Is the customer happy with the order?', %w[Yes No])
     end
-end 
+end
 
 def randomize_order_contents(order)
     order.colours = random_colours
     order.nail_shape = random_shape
     order.nail_art = random_art
-end 
-
+end
 
 class Order
     attr_accessor :nail_art, :nail_shape, :colours, :is_mani
-    def initialize 
+    def initialize
         @colours = []
     end
 
@@ -131,24 +123,24 @@ class Order
             puts 'Pedicure order:'
         end
 
-        puts 'Colours: #{@colours.join(', ')}'
+        puts "Colours: #{@colours.join(', ')}"
         if nail_art != nil
-            puts 'Nail art: #{@nail_art}'
-        end 
+            puts "Nail art: #{@nail_art}"
+        end
         if @is_mani
-            puts 'Nail shape: #{@nail_shape}'
-        end 
-    end 
+            puts "Nail shape: #{@nail_shape}"
+        end
+    end
 
     def print_to_file
         print_to_file = []
-        if is_mani == true 
+        if is_mani == true
             print_to_file.push 'Manicure'
-        else 
+        else
             print_to_file.push 'Pedicure'
-        end 
+        end
         print_to_file.push colours
         print_to_file.push nail_art
         print_to_file.push nail_shape
-    end 
+    end
 end

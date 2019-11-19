@@ -1,1 +1,0 @@
-["Jade Tyrer", "jade-tyrer@hotmail.co.uk", "Pedicure", ["\e[38;5;55mDeep Purple\e[0m", "\e[38;5;217mPastel Coral\e[0m", "\e[38;5;224mPastel Raspberry\e[0m"], "Metallic", nil]

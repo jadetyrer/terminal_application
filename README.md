@@ -29,6 +29,19 @@ The Gems Rainbow and `tty-prompt` was used to make the terminal output easier to
 ![Control Flow Diagram](https://github.com/jadetyrer/terminal_application/blob/master/Control_flow_diagram.jpeg)
 
 
+### T1A2-6 Implementation Plan
+
+
+### T1A2-7 Implement Application
+To run the application in Terminal: ruby bespoke_nail_booker.rb {salon name}
+
+### T1A2-9 Style and Conventions
+The Rubocop gem used for code styling and convention
+
+### T1A2-11 Help File
+
+
+
 
 
 

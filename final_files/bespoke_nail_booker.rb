@@ -1,6 +1,8 @@
-require "rainbow"
-require_relative "methods"
-require "valid_email2"
+# frozen_string_literal: true
+
+require 'rainbow'
+require_relative 'methods'
+require 'valid_email2'
 
 salon_name = ARGV[0]
 
@@ -8,13 +10,11 @@ def gets
     STDIN.gets
 end
 
-nail_shape = read_as_file("nail_shape.txt")
-nail_art = read_as_file("nail_art.txt")
 prompt = TTY::Prompt.new
 order = Order.new
 customer = Customer.new
 
-puts Rainbow("Welcome to Bespoke Nails Booker!")
+puts 'Welcome to Bespoke Nails Booker!'
 puts "Salon name: #{salon_name}"
 
 customer_details = customer.customer_details
@@ -22,20 +22,17 @@ customer_details = customer.customer_details
 order.is_mani = does_user_want_a_mani(prompt)
 
 rand_or_cust = randomize_or_customize(prompt)
-if rand_or_cust == "Customize"
+if rand_or_cust == 'Customize'
     order.colours = colour_choice(prompt)
     order.nail_shape = nail_shape_choice(prompt)
     order.nail_art = nail_art_choice(prompt)
     order.print_order
 
-elsif rand_or_cust == "Randomize"
+elsif rand_or_cust == 'Randomize'
     randomize(prompt, order)
     order.print_order
-end 
+end
 
 order_to_file = order.print_to_file
 
 File.write("order#{Time.now}.txt", customer_details + order_to_file)
-
-
-
