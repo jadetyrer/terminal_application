@@ -24,9 +24,12 @@ The Gems Rainbow and `tty-prompt` was used to make the terminal output easier to
 
 
 ### T1A2-5 Control Flow Diagram
-[Control Flow Diagram](https://github.com/jadetyrer/terminal_application/blob/master/Control_flow_diagram.jpg)
+[Control Flow Diagram](https://github.com/jadetyrer/terminal_application/blob/master/Control_flow_diagram.jpeg)
 
-![Control Flow Diagram](https://github.com/jadetyrer/terminal_application/blob/master/Control_flow_diagram.jpg)
+![Control Flow Diagram](https://github.com/jadetyrer/terminal_application/blob/master/Control_flow_diagram.jpeg)
+
+
+
 
 
 
