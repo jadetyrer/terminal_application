@@ -31,9 +31,6 @@ if rand_or_cust == "Customize"
 elsif rand_or_cust == "Randomize"
     randomize(prompt, order)
     order.print_order
-
-else 
-    puts "Invalid response"
 end 
 
 order_to_file = order.print_to_file

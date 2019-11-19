@@ -1,0 +1,1 @@
+["Jade Tyrer", "jade-tyrer@hotmail.co.uk", "Pedicure", ["\e[38;5;72mPine\e[0m", "\e[38;5;109mOcean\e[0m", "\e[38;5;48mBasil\e[0m"], "Ombre", nil]

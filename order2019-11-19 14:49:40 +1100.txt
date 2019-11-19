@@ -1,0 +1,1 @@
+["k", "j@s", "Manicure", ["\e[38;5;230mAlmond\e[0m", "\e[38;5;178mDark Gold\e[0m", "\e[38;5;118mLime\e[0m"], "Stenciled", "Oval"]
