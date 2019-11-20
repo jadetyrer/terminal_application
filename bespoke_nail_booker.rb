@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rainbow'
 require_relative 'methods'
 require 'valid_email2'
