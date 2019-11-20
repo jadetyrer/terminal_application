@@ -33,13 +33,48 @@ The Gems Rainbow and `tty-prompt` was used to make the terminal output easier to
 
 
 ### T1A2-7 Implement Application
-To run the application in Terminal: ruby bespoke_nail_booker.rb {salon name}
+To run the application in Terminal: ruby bespoke_nail_booker.rb {'salon name'}
 
 ### T1A2-9 Style and Conventions
-The Rubocop gem used for code styling and convention
+The `Rubocop` Ruby gem used is used to ensure style and conventions
 
 ### T1A2-11 Help File
 
+#### Installation
+
+###### MAC: OS
+
+1. Open terminal (can be found by searching in 'Finder')
+2. Clone the Github repository [here](https://github.com/jadetyrer/terminal_application)
+3. Enter the `git clone {url}` to the terminal
+4. `cd` into the directory with the cloned respository is saved
+5. Type in `./build.sh` to the terminal to download the relevant gems and files
+6. Start the program by typing `bespoke_nail_booker.rb {'salon name'}` 
+
+#### Dependancies 
+Ruby must be downloaded to your computer. This can be installed through homebrew by following [this link](https://brew.sh/) and coping the link provided to your terminal. You can then type `brew install ruby` to the command line. 
+
+The application also requires the following Ruby gems:
++ tty-prompt
++ rainbow
++ valid_email2
+
+n.b. the gems will be automatically downloaded via the build script. 
+
+#### Features
+
+**Customer details**
+The customer name must be entered when prompted, if nothing is entered in this field the program will terminate. The customer email needs to be entered in the correct format, if a mistake is made the program will ask to try again until the correct email format is adhered to.
+
+**Menus** 
+The menus that require only one selction are navigated via the keyboard arrows and slected by pressing enter. As the colour menu allows the user to input more than one option the colours required are selcted via the space bar and entered via the enter key. 
+
+
+**Customize and Randomize** 
+This feature is selected via a menu "Customize" or "Randomize" will be selected by the user and following output will produce a different menu depending on the selection. The "customize" option will step through the menu options to pick the specifice nail style defined by the customer. The "randomize" option will produce a unique style select "yes" if this is the customers preferred nail style or "no" to regenerate a new style. 
+
+**Write to file**
+The file will be written loaclly with the coustomer and order details after all details have ben selected. This will be exectued automatically. If this needs to be edited open the file and edit the text directly.
 
 
 
@@ -52,11 +87,16 @@ The Rubocop gem used for code styling and convention
 
 
 
-Add in the name of the files 
-data.rb - for colours 
-nail_shape.rb... 
-try and add arg v 
-talk about creating the classes and methods 
+
+
+
+
+
+
+
+
+
+ 
 
 Add help for ARGV 
 do help file 
@@ -74,21 +114,23 @@ do help file
 
 ### Development log 
 
-<b>Wednesday 13th November</b>
-
-
-
 <b>Thursday 14th November</b>
 
 As planned I continued to develop my code by putting certain elements into methods. During the creation of my methods I reliased it would be easier if I produced the final printed order in a class. This way I could ensure all parameters are met to print the final result. Creating the order class also allowed me to print only the parameters I needed based on the user input. 
 
-I also added a feature that reads the nail shape and nail art options from a text file and then prinnts to teh termminal. This way teh user does not have to have prior coding knowldge in order to change these features in the future they can ammended from the text file.
+I also added a feature that reads the nail shape and nail art options from a text file and then prints to the termminal. This way the user does not have to have prior coding knowldge in order to change these menu options in the future they can ammended from the text file.
 
 There are still a few errors with my code that I need to address, the randomize feature of my program is not displaying the results that the user has slected they are happy with. This is the next part of my code that I will work on. 
 
+I ahve decided if I have time to add in another feature to the application that take the customer name and email as inputs and writes this to the file at the end along side the order details. This will increase the capabilities of the program. 
+
 <b>Friday 15th November</b>
 
-I have successfully completed both the customize and randomize features of my application and have decided that I need to add a new class for each customer. I am then planning to write both the customer details and the details of thier order to a file to view the order at a later date. I am undecided whether to add only the customer name to the file or further personal details due to time constraints. Adding the phone number and the email address require validation which will take quite a while to implement. 
+I have successfully completed both the customize and randomize features of my application and have created a new class to create an instance for each customer order. I am then planning to write both the customer details and the details of thier order to a file to view the order at a later date. Due to time constrainats I have decided only to add the name and email as customer details. Adding the phone number will require additional validation which will take quite a while to implement. 
+
+I have also written a test for my code that ensures that each of my randomization outputs are not the the same. The test takes two instances of the randomized orders and compares them to ensure they are not equal.
+
+I have added a command line argument that will further personalise the application to the salon using the program. 
 
 
 
