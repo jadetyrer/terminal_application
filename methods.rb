@@ -1,6 +1,6 @@
 require 'tty-prompt'
-require_relative 'data'
 require 'valid_email2'
+require_relative 'data'
 
 class Customer
     attr_accessor :customer_name, :customer_email
@@ -55,8 +55,8 @@ def does_user_want_a_mani(prompt)
     $mani_or_pedi == 'Manicure'
 end
 
-def randomize_or_customize(prompt)
-    prompt.select('Book randomized or customized?', %w[Randomize Customize])
+def randomise_or_customise(prompt)
+    prompt.select('Book randomised or customised?', %w[Randomise Customise])
 end
 
 def colour_choice(prompt)
@@ -95,16 +95,16 @@ def random_art
     random_art
 end
 
-def randomize(prompt, order)
+def randomise(prompt, order)
     response = 'No'
     while response == 'No'
-        randomize_order_contents(order)
+        randomise_order_contents(order)
         order.print_order
         response = prompt.select('Is the customer happy with the order?', %w[Yes No])
     end
 end
 
-def randomize_order_contents(order)
+def randomise_order_contents(order)
     order.colours = random_colours
     order.nail_shape = random_shape
     order.nail_art = random_art

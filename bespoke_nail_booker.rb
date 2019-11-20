@@ -21,15 +21,15 @@ customer_details = customer.customer_details
 
 order.is_mani = does_user_want_a_mani(prompt)
 
-rand_or_cust = randomize_or_customize(prompt)
-if rand_or_cust == 'Customize'
+rand_or_cust = randomise_or_customise(prompt)
+if rand_or_cust == 'Customise'
     order.colours = colour_choice(prompt)
     order.nail_shape = nail_shape_choice(prompt)
     order.nail_art = nail_art_choice(prompt)
     order.print_order
 
-elsif rand_or_cust == 'Randomize'
-    randomize(prompt, order)
+elsif rand_or_cust == 'Randomise'
+    randomise(prompt, order)
     order.print_order
 end
 
