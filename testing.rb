@@ -1,12 +1,19 @@
 require_relative 'methods'
 
-nail_shape = read_as_file('nail_art.txt')
 
-nail_shape.each do |shape|
-    puts '>#{shape}<'
+def test_nail_shape_not_empty
+    nail_shape = read_as_file('nail_art.txt')
+    nail_shape.each do |shape|
+        if shape.length > 0
+            puts 'Pass'
+        else
+            puts 'Fail'
+        end 
+    end   
 end
 
 def testing_randomise
+    # This is a method to test that the 2 instances of randomise do not produce the same result.
     order_1 = Order.new
     order_2 = Order.new
 
@@ -20,7 +27,9 @@ def testing_randomise
     end 
 end 
 
+puts test_nail_shape_not_empty
 puts testing_randomise
+
 
 
 

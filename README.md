@@ -14,8 +14,11 @@ The menus in the application will utilise the `tty-prompt` Ruby gem. The branchi
 
 The menu selection can be set-up to accept multiple inputs (multi.select) or to accept only one input. Multi.select is utilised to allow the user input more than one nail polish colour. The single selection method is used to where the program only wants one answer for example in case of asking for a manicure or pedicure. These options are then added to the new instance of the Order class. Conditional control structures will be executed in the code to ensure the correct information is displayed to the user. An example of this is when the user selects the customise option if statements are utilised to ensure the next menu allows the user to choose their colours. 
 
-###### Customise or Randomise
-Another feature of the application is the user is given the option to customise or randomise the order. If the user selects to customise the program will run through the menus and prompts to select their individual nail style options. The program will contain a method for generating a random combination of the available options. The method will reference the arrays from the data.rb file or pull the information from the text files `nail_shape.txt` and `nail_shape.txt`. A random sample will be taken from this data and another method will be called to place the information in a instance of an Order class. This will create a unique look for the customer and give them the opportunity to try something new without having to decide themselves. The program will prompt the user to input whether they are happy ('Yes or 'No) with the outcome. If the user inputs 'No' the program will enter a conditional loop that will re-generate nail styles until the user inputs "Yes". Once the loop is broken the program will print out the order and write it to a file. The feature will implement a control structure to ensure the correct information is shown to the user based on previous decisions made, for example the nail shape will not be an option when booking a pedicure. 
+###### Customise
+Another feature of the application is the user is given the option to customise the order. If the user selects to customise their treatment the program will run through the menus and prompts to select their nail style options. Methods will create the arrays from the `data.rb` file or pull the information from the text files `nail_shape.txt` and `nail_shape.txt`. The user will have a list of colour names in the colour of the nail polish it relates to and be able to navigate through colours that are grouped together for ease of selection process. The selections made by the user will be written to an instance of the class Order. The feature will implement a control structure to ensure the correct information is shown to the user based on previous decisions made, for example the nail shape will not be an option when booking a pedicure. The options selected by the user will then be printed to the terminal and the options will be pushed into an array and written to a file. 
+
+###### Randomise
+The randomise option produces a random element from these arrays using the `sample` method. The method selects a random index from the array to output a different combination each time it is run. This will create a unique look for the customer and give them the opportunity to try something new without having to decide themselves. The program will prompt the user to input whether they are happy ('Yes or 'No) with the outcome. If the user inputs 'No' the program will enter a conditional loop that will re-generate nail styles until the user inputs "Yes". Once the loop is broken the program will print out the order and push the selections to an array in order to write it to a file.
 
 ###### Write to file 
 The program will save the customers personal details and the specifics of the order in a file. This allows the booking to be saved and viewed at a later date. Saving the customers details mean they can be sent promotions in the future based on their previous orders. This also allows for the customers orders to be recalled at a later date for a more personalised service. The program also read from files to push information into an array. The text files contain the nail shape options and nail art options. These are then pulled from the file looping over each of the text file lines and pushing them into an array. As there can be exceptions when pulling from a text file the keyword rescue can be used to display an error message if the file is not executed correctly. A message will be displayed detailing the file name that failed to load and notify the user of the error. 
@@ -34,12 +37,6 @@ The Gems Rainbow and `tty-prompt` was used to make the terminal output easier to
 ### T1A2-6 Implementation Plan
 [Implementation plan](https://github.com/jadetyrer/terminal_application/blob/master/documentation/implementation%20Plan.numbers)
 
-
-### T1A2-7 Implement Application
-To run the application in Terminal: ruby bespoke_nail_booker.rb {'salon name'}
-
-### T1A2-9 Style and Conventions
-The `Rubocop` Ruby gem used is used to ensure style and conventions
 
 ### T1A2-11 Help File
 
@@ -103,9 +100,6 @@ The second test created was to check the randomise feature of the application. T
     else 
         puts 'FAIL'
     end
-
-#### T1A2-13 Source Code
-
 
 #### T1A2-14 Project Management Platform
 [Implementation plan](https://github.com/jadetyrer/terminal_application/blob/master/documentation/implementation%20Plan.numbers)
