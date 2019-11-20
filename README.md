@@ -76,64 +76,29 @@ This feature is selected via a menu "Customize" or "Randomize" will be selected 
 **Write to file**
 The file will be written loaclly with the coustomer and order details after all details have ben selected. This will be exectued automatically. If this needs to be edited open the file and edit the text directly.
 
+#### T1A2-12 Test Application
 
+A test was implemented when reading the nail shape and nail art data from the file. The tested each peice of data was pulled without white space to ensure that the files were pulling correctly. 
 
+`nail_shape = read_as_file('nail_art.txt')
 
+nail_shape.each do |shape|
+    puts '>#{shape}<'
+end`
 
+The second test created was to check the randomimze feature of the application. The test takes two instances of randomize and ensured randomize was producing different data for colours, nail shape and nail art in each instance. 
 
+    def testing_randomize
+    order_1 = Order.new
+    order_2 = Order.new
 
+    randomize_order_contents(order_1)
+    randomize_order_contents(order_2)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-Add help for ARGV 
-do help file 
-
-
-
-
-
-
-
-
-
-
-
-
-### Development log 
-
-<b>Thursday 14th November</b>
-
-As planned I continued to develop my code by putting certain elements into methods. During the creation of my methods I reliased it would be easier if I produced the final printed order in a class. This way I could ensure all parameters are met to print the final result. Creating the order class also allowed me to print only the parameters I needed based on the user input. 
-
-I also added a feature that reads the nail shape and nail art options from a text file and then prints to the termminal. This way the user does not have to have prior coding knowldge in order to change these menu options in the future they can ammended from the text file.
-
-There are still a few errors with my code that I need to address, the randomize feature of my program is not displaying the results that the user has slected they are happy with. This is the next part of my code that I will work on. 
-
-I ahve decided if I have time to add in another feature to the application that take the customer name and email as inputs and writes this to the file at the end along side the order details. This will increase the capabilities of the program. 
-
-<b>Friday 15th November</b>
-
-I have successfully completed both the customize and randomize features of my application and have created a new class to create an instance for each customer order. I am then planning to write both the customer details and the details of thier order to a file to view the order at a later date. Due to time constrainats I have decided only to add the name and email as customer details. Adding the phone number will require additional validation which will take quite a while to implement. 
-
-I have also written a test for my code that ensures that each of my randomization outputs are not the the same. The test takes two instances of the randomized orders and compares them to ensure they are not equal.
-
-I have added a command line argument that will further personalise the application to the salon using the program. 
-
-
-
-
+    if order_1.nail_art != order_2.nail_art || order_1.nail_shape != order_2.nail_shape || order_1.colours != order_2.colours
+        puts 'PASS'
+    else 
+        puts 'FAIL'
+    end
 
 
