@@ -13,7 +13,7 @@ def test_nail_shape_not_empty
 end
 
 def testing_randomise
-    # This is a method to test that the 2 instances of randomise do not produce the same result.
+    # This is a method to test that the 2 instances randomise do not produce the same result.
     order_1 = Order.new
     order_2 = Order.new
 
